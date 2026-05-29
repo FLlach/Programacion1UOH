@@ -45,7 +45,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{Escuela de Ingeniería \\ Universidad de O'Higgins}
-\fancyhead[R]{Programación I \\ 2026-01}
+\fancyhead[R]{Programación\\ 2026 01}
 \fancyfoot[C]{\thepage}
 
 % Título comprimido
@@ -61,7 +61,7 @@
 }
 \makeatother
 
-\title{Guía de Ayudantía: Funciones en Python}
+\title{Guía repaso de funciones}
 \author{Felipe Llach R.}
 
 \begin{document}
@@ -83,36 +83,56 @@ def nombre_de_la_funcion(parametros):
 \end{tcolorbox}
 
 \section{Parámetros y Argumentos}
-Los \textbf{parámetros} son las variables que se listan entre los paréntesis en la definición de la función. Los \textbf{argumentos} son los valores que se envían a la función cuando esta es llamada.
+Los \textbf{parámetros} son las variables que se listan en la definición. Los \textbf{argumentos} son los valores reales que se pasan al llamar a la función.
+
+\subsection{Valores por Defecto}
+Es posible asignar valores por defecto a los parámetros. Si al llamar a la función no se proporciona un argumento para ese parámetro, se utilizará el valor predefinido.
 
 \begin{lstlisting}
-def saludar(nombre):
-    print(f"Hola, {nombre}!")
+def saludar(nombre, mensaje="Hola"):
+    print(f"{mensaje}, {nombre}!")
 
-saludar("Diego") # "Diego" es el argumento
+saludar("Diego")           # Imprime: Hola, Diego!
+saludar("Elena", "Buenos dias") # Imprime: Buenos dias, Elena!
 \end{lstlisting}
 
 \section{Retorno de Valores}
-Una función puede devolver un valor al programa principal utilizando la sentencia \texttt{return}. Una vez que se ejecuta un \texttt{return}, la función termina inmediatamente.
+La sentencia \texttt{return} permite que la función envíe un resultado de vuelta al lugar donde fue llamada.
+
+\subsection{Retorno de múltiples valores}
+Python permite retornar más de un valor a la vez. Técnicamente, los valores se retornan como una \textbf{tupla}, que luego puede ser "desempaquetada".
+
+\begin{lstlisting}
+def calcular_rectangulo(base, altura):
+    area = base * altura
+    perimetro = 2 * (base + altura)
+    return area, perimetro
+
+# Desempaquetando los valores
+a, p = calcular_rectangulo(10, 5)
+print(f"Area: {a}, Perimetro: {p}")
+\end{lstlisting}
+
+\section{Documentación de Funciones (Docstrings)}
+Se utilizan triples comillas (\texttt{"""}) para documentar la función. Se puede consultar con \texttt{help()}.
 
 \begin{lstlisting}
 def sumar(a, b):
+    """Retorna la suma de a y b."""
     return a + b
 
-resultado = sumar(5, 3)
-print(resultado) # Imprime 8
+help(sumar)
 \end{lstlisting}
 
-\section{Ejercicios Propuestos}
+\section{Módulos e Importación}
+Para usar funciones de otros archivos (\texttt{.py}) o librerías estándar:
 
-\begin{enumerate}
-    \item \textbf{Calculadora de Área:} Escriba una función llamada \texttt{area\_triangulo(base, altura)} que reciba la base y la altura de un triángulo y retorne su área.
-    
-    \item \textbf{Verificador de Paridad:} Escriba una función \texttt{es\_par(numero)} que reciba un número entero y retorne \texttt{True} si el número es par y \texttt{False} si es impar.
-    
-    \item \textbf{Conversor de Temperatura:} Cree una función que convierta grados Celsius a Fahrenheit. La fórmula es: $F = C \times 1.8 + 32$.
-    
-    \item \textbf{Máximo de tres:} Escriba una función \texttt{max\_de\_tres(a, b, c) } que reciba tres números y retorne el mayor de ellos sin usar la función \texttt{max() } de Python.
-\end{enumerate}
+\begin{lstlisting}
+import math
+from random import randint
+
+print(math.sqrt(25))
+print(randint(1, 100))
+\end{lstlisting}
 
 \end{document}

@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{listings}
+
+% Configuración de listings para Python
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=Python
+}
+
+\lstset{style=mystyle}
+
+% Encabezado
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Escuela de Ingeniería \\ Universidad de O'Higgins}
+\fancyhead[R]{Programación\\ 2026-01}
+\fancyfoot[C]{\thepage}
+
+% Título comprimido
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{center}
+    {\LARGE \@title\par}
+    \vskip 0.3em
+    {\large \@author\par}
+    \vskip 0.3em
+  \end{center}
+  \vskip -0.2em  % Espacio después del título
+}
+\makeatother
+
+\title{Ayudantía 5}
+\author{Felipe Llach R.}
+
+\begin{document}
+\maketitle
+
+\section{Ejercicios}
+
+\begin{enumerate}
+
+    \item \textbf{Cálculo de Potencia:}
+    Escriba una función llamada \texttt{potencia(base, exponente=2)} que reciba una base y un exponente. Si el exponente no es proporcionado, la función debe elevar la base al cuadrado. La función debe retornar el resultado.
+
+    \item \textbf{Estadísticas Básicas:}
+    Cree una función llamada \texttt{analizar\_numeros(a, b, c)} que reciba tres números enteros. La función debe retornar tres valores: la suma de los tres, el número menor y el número mayor.
+
+    \item \textbf{Documentación y Validación:}
+    Escriba una función llamada \texttt{es\_bisiesto(year)} que determine si un año es bisiesto. 
+    \begin{itemize}
+        \item Debe incluir un \textbf{docstring} detallado que explique la lógica (Un año es bisiesto si es divisible por 4, pero no por 100, a menos que sea divisible por 400).
+        \item Pruebe la documentación usando \texttt{help(es\_bisiesto)}.
+        \item \textit{Concepto:} Docstrings y ayuda integrada.
+    \end{itemize}
+
+    \item \textbf{Simulador de Dados (Módulo \texttt{random}):}
+    Importe el módulo \texttt{random} y cree una función \texttt{lanzar\_dados(cantidad)} que simule el lanzamiento de $N$ dados de 6 caras. La función debe retornar una lista con los resultados de cada dado.
+
+    \item \textbf{Geometría Analítica (Módulo \texttt{math}):}
+    Cree un módulo llamado \texttt{geometria.py} (conceptualmente o en un archivo aparte) que contenga una función \texttt{distancia\_entre\_puntos(x1, y1, x2, y2)}. Utilice \texttt{math.sqrt} y \texttt{math.pow} para calcular la distancia euclidiana entre dos puntos $(x_1, y_1)$ y $(x_2, y_2)$.
+
+    \item \textbf{Conversor de Moneda con IVA:}
+    Diseñe una función \texttt{calcular\_total(monto, tasa\_iva=0.19)} que calcule el total a pagar incluyendo el IVA. Si no se especifica la tasa, debe usar el 19\% por defecto. La función debe documentar claramente sus argumentos.
+
+\end{enumerate}
+
+\section*{Desafío Extra}
+Cree un script principal que importe las funciones de los ejercicios anteriores y permita al usuario interactuar con ellas a través de un menú simple.
+
+\end{document}
