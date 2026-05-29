@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{listings}
+
+% Configuración de listings para Python
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=Python
+}
+
+\lstset{style=mystyle}
+
+% Encabezado
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Escuela de Ingeniería \\ Universidad de O'Higgins}
+\fancyhead[R]{Programación I \\ 2026-01}
+\fancyfoot[C]{\thepage}
+
+% Título comprimido
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{center}
+    {\LARGE \@title\par}
+    \vskip 0.3em
+    {\large \@author\par}
+    \vskip 0.3em
+  \end{center}
+  \vskip -0.2em  % Espacio después del título
+}
+\makeatother
+
+\title{Guía de Ayudantía: Funciones en Python}
+\author{Felipe Llach R.}
+
+\begin{document}
+\maketitle
+
+\section{Introducción}
+Las funciones son bloques de código reutilizables que realizan una tarea específica. Nos permiten organizar el código, evitar la repetición y facilitar la resolución de problemas complejos dividiéndolos en partes más pequeñas.
+
+\section{Definición de una Función}
+Para definir una función en Python se utiliza la palabra reservada \texttt{def}, seguida del nombre de la función y paréntesis.
+
+\begin{tcolorbox}[title=Estructura básica]
+\begin{lstlisting}
+def nombre_de_la_funcion(parametros):
+    # Cuerpo de la funcion
+    instrucciones
+    return resultado # Opcional
+\end{lstlisting}
+\end{tcolorbox}
+
+\section{Parámetros y Argumentos}
+Los \textbf{parámetros} son las variables que se listan entre los paréntesis en la definición de la función. Los \textbf{argumentos} son los valores que se envían a la función cuando esta es llamada.
+
+\begin{lstlisting}
+def saludar(nombre):
+    print(f"Hola, {nombre}!")
+
+saludar("Diego") # "Diego" es el argumento
+\end{lstlisting}
+
+\section{Retorno de Valores}
+Una función puede devolver un valor al programa principal utilizando la sentencia \texttt{return}. Una vez que se ejecuta un \texttt{return}, la función termina inmediatamente.
+
+\begin{lstlisting}
+def sumar(a, b):
+    return a + b
+
+resultado = sumar(5, 3)
+print(resultado) # Imprime 8
+\end{lstlisting}
+
+\section{Ejercicios Propuestos}
+
+\begin{enumerate}
+    \item \textbf{Calculadora de Área:} Escriba una función llamada \texttt{area\_triangulo(base, altura)} que reciba la base y la altura de un triángulo y retorne su área.
+    
+    \item \textbf{Verificador de Paridad:} Escriba una función \texttt{es\_par(numero)} que reciba un número entero y retorne \texttt{True} si el número es par y \texttt{False} si es impar.
+    
+    \item \textbf{Conversor de Temperatura:} Cree una función que convierta grados Celsius a Fahrenheit. La fórmula es: $F = C \times 1.8 + 32$.
+    
+    \item \textbf{Máximo de tres:} Escriba una función \texttt{max\_de\_tres(a, b, c) } que reciba tres números y retorne el mayor de ellos sin usar la función \texttt{max() } de Python.
+\end{enumerate}
+
+\end{document}
